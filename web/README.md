@@ -41,7 +41,9 @@ Doc: https://tailwindcss.com/docs/installation/using-postcss
 1. ```npm install -D tailwindcss postcss autoprefixer```
 2. ```npx tailwindcss init -p ```
 3. No arquivo **tailwind.config.js** cole em **content** ```["./src/**/*.{html,js}"],```
+
 3.1. Substitua o valor de {html,js} para tsx ```content: ["./src/**/*.tsx"],```
+
 3.2. Dentro de extends posso extender uma color
 ```
 extend: {
