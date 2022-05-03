@@ -1,5 +1,5 @@
 
-![NLW](https://imgur.com/2y5GdI3)
+![NLW](https://i.imgur.com/2y5GdI3.png)
 # nlw-impulse
 
 ### Utilizar para criação do app vite-vanilha
