@@ -6,6 +6,7 @@ import outroImageUrl from "../../assets/outro.svg"
 import { useState } from "react";
 import { FeedbackTypeStep } from "./Steps/FeedbackTypeStep";
 import { FeedbackContentStep } from "./Steps/FeedbackContentStep";
+import { FeedbackSuccessStep } from "./Steps/FeedbackSuccessStep";
 
 export const feedbackTypes = {
     BUG: {
@@ -36,8 +37,10 @@ export type FeedbackType = keyof typeof feedbackTypes;
 
 export function WidgetForm() {
     const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null)
+    const [feedbackSent, setFeedbackSent] = useState(false)
 
-    function handleRestartfeedbac(){
+    function handleRestartfeedbac() {
+        setFeedbackSent(false);
         setFeedbackType(null);
     }
 
@@ -45,15 +48,24 @@ export function WidgetForm() {
     return (
         <div className="bg-zinc-900 p-4 relative rounded-2xl mb-4 flex flex-col items-center shadow-lg w-[calc(100vw-2rem)] md:w-auto">
 
+            {feedbackSent ? 
+                <FeedbackSuccessStep 
+                    onRestartFeedbackRequest={handleRestartfeedbac}
+                />
+            : <>
+                    {!feedbackType ? (
+                        <FeedbackTypeStep onFeedbackTypeChange={setFeedbackType} />
+                    ) : (
+                        <FeedbackContentStep
+                            feedbackType={feedbackType}
+                            onRestartFeedbackRequest={handleRestartfeedbac}
+                            onFeedbackSent={() => { setFeedbackSent(true) }} />
+                    )
+                    }
 
-            {!feedbackType ? (
-                <FeedbackTypeStep onFeedbackTypeChange={setFeedbackType} />
-            ) : (
-                <FeedbackContentStep 
-                feedbackType={feedbackType}
-                onRestartFeedbackRequest={handleRestartfeedbac}/>
-            )
-            }
+                </>}
+
+
             <footer className="text-xs text-neutral-400">Feito com ♥ pela <a href="https://github.com/paulohlvs" target="_blank">Thinness | SI</a></footer>
         </div >
     )
