@@ -22,3 +22,19 @@
 ``` npm i @prisma/client  ```
 - Roda o comando para inicar o prisma 
 ````npx prisma init ```
+
+# Nodemailer
+> Utilizado para envio de email 
+
+# SOLID
+1. Single Responsibility Principle
+2. Open/Closed Principle
+3. Liskov Substitution Principle
+4. Interface Segregation Principle
+5. Dependency Inversion Principle
+---------------------------------------------
+1. Cada Classe/Função tem uma responsabilidade única;
+2. As clasees da aplicação devem ser aberta para extensão mas fechadas para modificação;
+3. Nos devemos substituir uma classe pai por uma herança dela e tudo continua funcionando;
+4. Separar ao maximo as interfaces
+5. Receber uma dependencia externa e usar
