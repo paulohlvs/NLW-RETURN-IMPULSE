@@ -26,6 +26,18 @@
 # Nodemailer
 > Utilizado para envio de email 
 
+# Jest
+> utilizado para testes
+
+```npm install jest -D```
+```npm install ts-node -D```
+```npm install @types/jest```
+# SWC
+> utilizando para compilar os testes 
+
+```npm i -D jest @swc/core @swc/jest```
+
+
 # SOLID
 1. Single Responsibility Principle
 2. Open/Closed Principle
