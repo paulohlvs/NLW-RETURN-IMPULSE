@@ -25,13 +25,8 @@ export function FeedbackSuccessStep({onRestartFeedbackRequest}: FeedbackSuccessP
                 </button>
             </div>
 
-
-
-
-            <footer className="flex mt-2 gap-2">
-
-
-            </footer>
+            <footer className="flex mt-2 gap-2"/>
+                
 
 
         </>
