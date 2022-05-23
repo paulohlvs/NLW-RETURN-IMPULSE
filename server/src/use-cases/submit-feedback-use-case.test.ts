@@ -15,7 +15,7 @@ describe('Submit feedback', () => {
         await expect(submitFeedback.execute({
             type: "BUG",
             comment: "tudo do teste",
-            screenshot: "data:image/pang;base64,asdgadshhadhadhdsahadlkjljpg",
+            screenshot: "data:image/png;base64,asdgadshhadhadhdsahadlkjljpg",
 
         })).resolves.not.toThrow();
 
@@ -27,7 +27,7 @@ describe('Submit feedback', () => {
         await expect(submitFeedback.execute({
             type: "",
             comment: "alou passei no test sem type",
-            screenshot: "data:image/pang;base64,asdgadshhadhadhdsahadlkjljpg",
+            screenshot: "data:image/png;base64,asdgadshhadhadhdsahadlkjljpg",
 
         })).rejects.toThrow();
     })
@@ -36,7 +36,7 @@ describe('Submit feedback', () => {
         await expect(submitFeedback.execute({
             type: "BUG",
             comment: "",
-            screenshot: "data:image/pang;base64,asdgadshhadhadhdsahadlkjljpg",
+            screenshot: "data:image/png;base64,asdgadshhadhadhdsahadlkjljpg",
 
         })).rejects.toThrow();
     })

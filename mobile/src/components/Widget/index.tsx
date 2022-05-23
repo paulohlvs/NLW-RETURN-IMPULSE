@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { ChatTeardropDots } from 'phosphor-react-native'
 import BottomSheet from '@gorhom/bottom-sheet'
@@ -6,20 +6,38 @@ import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
 import { styles } from './styles';
 import { theme } from '../../theme';
+import { feedbackTypes } from '../../utils/feedbackTypes';
+import { Options } from '../Options';
+import { Form } from '../Form';
+import { Success } from '../Success';
 
- function Widget() {
 
+export type FeedbackType = keyof typeof feedbackTypes;
+
+function Widget() {
   const bottomSheetRef = useRef<BottomSheet>(null)
-  function handleOpen(){
+  const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null);
+  const [feedbackSent, setFeedbackSent] = useState(false)
+
+  function handleOpen() {
     bottomSheetRef.current?.expand();
+  }
+
+  function handleFeedbackCanceled() {
+    setFeedbackType(null);
+    setFeedbackSent(false);
+  }
+
+  function handleFeedbackSent() {
+    setFeedbackSent(true);
   }
 
   return (
     <>
       <TouchableOpacity
-        style={styles.button} 
+        style={styles.button}
         onPress={handleOpen}
-        >
+      >
 
         <ChatTeardropDots
           size={24}
@@ -30,12 +48,35 @@ import { theme } from '../../theme';
 
       <BottomSheet
         ref={bottomSheetRef}
-        snapPoints={[1,280]}
+        snapPoints={[1, 280]}
         backgroundStyle={styles.modal}
         handleIndicatorStyle={styles.indicator}
-        >
+      >
 
-        </BottomSheet>
+        {
+          feedbackSent ?
+            <Success onFeedbackClear={handleFeedbackCanceled} />
+            :
+            <>
+              {
+                feedbackType ?
+                  <Form
+                    feedbackType={feedbackType}
+                    onFeedbackCanceled={handleFeedbackCanceled}
+                    onFeedbackSent={handleFeedbackSent}
+                  />
+                  :
+                  <Options onFeedbackTypeChang={setFeedbackType} />
+              }
+            </>
+        }
+
+
+
+
+      </BottomSheet>
+
+
     </>
   );
 }

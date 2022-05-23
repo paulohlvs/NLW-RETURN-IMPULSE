@@ -66,7 +66,7 @@ export function WidgetForm() {
                 </>}
 
 
-            <footer className="text-xs text-neutral-400">Feito com ♥ pela <a href="https://github.com/paulohlvs" target="_blank">Thinness | SI</a></footer>
+            <footer className="text-xs text-neutral-400">Feito com ♥ pela <a href="https://thinness.com.br" target="_blank">Thinness | SI</a></footer>
         </div >
     )
 }

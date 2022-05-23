@@ -14,6 +14,7 @@ routes.post('/feedbacks', async (req, res) => {
     const nodemailerMailAdapter = new NodemailerMailAdapter()
     const submitFeedbacksUseCase = new SubmitFeedbackUseCase(prismaFeedbacksRepository, nodemailerMailAdapter)
 
+    console.log(req.body)
     await submitFeedbacksUseCase.execute({
         type,
         comment,

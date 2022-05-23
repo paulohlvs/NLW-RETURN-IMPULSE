@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { panGestureHandlerCustomNativeProps } from 'react-native-gesture-handler/lib/typescript/handlers/PanGestureHandler';
 import { getBottomSpace } from 'react-native-iphone-x-helper'
 import { theme } from '../../theme';
 
@@ -16,13 +15,13 @@ export const styles = StyleSheet.create({
 
     position: 'absolute',
     right: 16,
-    bottom: getBottomSpace() + 16, 
+    bottom: getBottomSpace() + 16,
   },
-  modal:{
+  modal: {
     backgroundColor: theme.colors.surface_primary,
     paddingBottom: getBottomSpace() + 16
   },
-  indicator:{
+  indicator: {
     backgroundColor: theme.colors.text_primary,
     width: 56,
   }
