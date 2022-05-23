@@ -1,4 +1,4 @@
-import { CloseButton } from "../CloseButton"
+
 
 import bugImageUrl from "../../assets/bug.svg";
 import ideiaImageUrl from "../../assets/ideia.svg";

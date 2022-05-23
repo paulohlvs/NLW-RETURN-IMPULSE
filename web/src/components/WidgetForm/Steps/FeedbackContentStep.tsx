@@ -1,6 +1,7 @@
 import { ArrowLeft } from "phosphor-react";
 import { FormEvent, useState } from "react";
-import { FeedbackType, feedbackTypes } from "..";
+import { FeedbackType,feedbackTypes } from "..";
+
 import { api } from "../../../lib/api";
 import { CloseButton } from "../../CloseButton";
 import { Loading } from "../../Loading";
@@ -33,7 +34,7 @@ export function FeedbackContentStep({ feedbackType, onRestartFeedbackRequest, on
         event.preventDefault()
         try {
             await api.post('/feedbacks', {
-                type: feedbackType,
+                type: feedbackTypeInfo.title,
                 comment,
                 screenshot
             })            

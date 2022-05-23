@@ -14,19 +14,19 @@ export class SubmitFeedbackUseCase {
     constructor(
         private feedbacksRepository: FeedbacksRepository,
         private nodemailerAdapter: MailAdapter
-        ) { }
-    
+    ) { }
+
 
     async execute(request: SubmitFeedbackUseCaseRequest) {
         const { type, comment, screenshot } = request;
-        if(!type){
+        if (!type) {
             throw new Error("Type is required.")
         }
-        if(!comment){
+        if (!comment) {
             throw new Error("comment is required.")
         }
 
-        if(screenshot && !screenshot.startsWith('data:image/png;base64')){
+        if (screenshot && !screenshot.startsWith('data:image/png;base64')) {
             throw new Error("invalid screenshot format.")
         }
 
@@ -48,5 +48,5 @@ export class SubmitFeedbackUseCase {
         })
     }
 
-  
+
 }
